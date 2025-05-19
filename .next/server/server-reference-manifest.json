@@ -1,0 +1,44 @@
+{
+  "node": {
+    "7fca701aafbffa038ff26a1e1bb0f5d0a72133e5fb": {
+      "workers": {
+        "app/home/feed/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22F%3A%5C%5CredditClone%5C%5CRedClone%5C%5Csrc%5C%5Cutils%5C%5CcloudinaryConfig.ts%22%2C%5B%7B%22id%22%3A%227fca701aafbffa038ff26a1e1bb0f5d0a72133e5fb%22%2C%22exportedName%22%3A%22deleteImage%22%7D%2C%7B%22id%22%3A%227fe39c32cd4f8c2270d55cc8ca6e3cbd54be6ff306%22%2C%22exportedName%22%3A%22uploadToCloudinary%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/home/feed/page": "rsc"
+      }
+    },
+    "7fe39c32cd4f8c2270d55cc8ca6e3cbd54be6ff306": {
+      "workers": {
+        "app/home/feed/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22F%3A%5C%5CredditClone%5C%5CRedClone%5C%5Csrc%5C%5Cutils%5C%5CcloudinaryConfig.ts%22%2C%5B%7B%22id%22%3A%227fca701aafbffa038ff26a1e1bb0f5d0a72133e5fb%22%2C%22exportedName%22%3A%22deleteImage%22%7D%2C%7B%22id%22%3A%227fe39c32cd4f8c2270d55cc8ca6e3cbd54be6ff306%22%2C%22exportedName%22%3A%22uploadToCloudinary%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/home/feed/page": "rsc"
+      }
+    },
+    "40ca91313d1d36f450e123bc81626b21671ea71beb": {
+      "workers": {
+        "app/home/feed/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22F%3A%5C%5CredditClone%5C%5CRedClone%5C%5Csrc%5C%5Cactions%5C%5Cauth%5C%5Cauthenticate.ts%22%2C%5B%7B%22id%22%3A%2240ca91313d1d36f450e123bc81626b21671ea71beb%22%2C%22exportedName%22%3A%22authenticate%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22F%3A%5C%5CredditClone%5C%5CRedClone%5C%5Csrc%5C%5Cactions%5C%5Cauth%5C%5Cauthenticate.ts%22%2C%5B%7B%22id%22%3A%2240ca91313d1d36f450e123bc81626b21671ea71beb%22%2C%22exportedName%22%3A%22authenticate%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/home/feed/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "7EikxkXZ/xdVzxp/lI/R17PiKAP0qTsgJuay36nH/Cw="
+}

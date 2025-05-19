@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String            @id @default(uuid())
+  username        String            @unique
+  createdAt       DateTime          @default(now())
+  email           String            @unique
+  password        String
+  comments        Comment[]
+  CommunityMember CommunityMember[]
+  posts           Post[]
+  votes           Vote[]
+}
+
+model Community {
+  id          String            @id @default(uuid())
+  name        String            @unique
+  displayName String
+  description String?
+  createdAt   DateTime          @default(now())
+  bannerUrl   String?
+  iconUrl     String?
+  updatedAt   DateTime          @updatedAt
+  members     CommunityMember[]
+  topics      CommunityTopic[]
+  posts       Post[]
+}
+
+model Post {
+  id          String    @id @default(uuid())
+  title       String
+  content     String?
+  mediaUrl    String?
+  type        PostType  @default(TEXT)
+  upvotes     Int       @default(0)
+  createdAt   DateTime  @default(now())
+  authorId    String
+  communityId String
+  url         String?
+  comments    Comment[]
+  author      User      @relation(fields: [authorId], references: [id])
+  community   Community @relation(fields: [communityId], references: [id])
+  Vote        Vote[]
+
+  @@index([communityId, createdAt])
+  @@index([upvotes])
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+  authorId  String
+  postId    String
+  author    User     @relation(fields: [authorId], references: [id])
+  post      Post     @relation(fields: [postId], references: [id])
+}
+
+model Vote {
+  id       String  @id @default(uuid())
+  isUpvote Boolean
+  userId   String
+  postId   String
+  post     Post    @relation(fields: [postId], references: [id])
+  user     User    @relation(fields: [userId], references: [id])
+
+  @@unique([userId, postId])
+}
+
+model Topic {
+  id          String           @id @default(uuid())
+  name        String           @unique
+  communities CommunityTopic[]
+}
+
+model CommunityTopic {
+  communityId String
+  topicId     String
+  community   Community @relation(fields: [communityId], references: [id])
+  topic       Topic     @relation(fields: [topicId], references: [id])
+
+  @@id([communityId, topicId])
+}
+
+model CommunityMember {
+  userId      String
+  communityId String
+  role        MemberRole @default(MEMBER)
+  joinedAt    DateTime   @default(now())
+  community   Community  @relation(fields: [communityId], references: [id])
+  user        User       @relation(fields: [userId], references: [id])
+
+  @@id([userId, communityId])
+}
+
+enum PostType {
+  TEXT
+  IMAGE
+  VIDEO
+  LINK
+}
+
+enum MemberRole {
+  MEMBER
+  MODERATOR
+  ADMIN
+}
